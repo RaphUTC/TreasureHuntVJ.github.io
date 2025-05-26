@@ -66,7 +66,7 @@
   <img src="banner.png" alt="Veolia Treasure Hunt Banner" class="banner">
 
   <div class="section">
-    <h2 onclick="toggle(this)">Story-1: MAP Hint</h2>
+    <h2 onclick="toggle(this)">First Stop</h2>
     <div class="content">
       <img src="map-placeholder.jpg" alt="Map Hint" class="map-image">
       <p>Location near Asakusa Station A5 Exit, Edo Street × Kaminarimon Ichinomiya Street</p>
@@ -100,5 +100,41 @@
       section.classList.toggle('active');
     }
   </script>
+
+<div class="section">
+  <h2 onclick="toggle(this)">Second Stop</h2>
+  <div class="content">
+    <img src="map-placeholder.jpg" alt="Map Hint" class="map-image">
+    <p>Location near Asakusa Station A5 Exit, Edo Street × Kaminarimon Ichinomiya Street</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2 onclick="toggle(this)">Hint 1</h2>
+  <div class="content">
+    <p>First, head to the location and look for an information board with the same shape.</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2 onclick="toggle(this)">Hint 2</h2>
+  <div class="content">
+    <p>[Add hint 2 content here]</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2 onclick="toggle(this)">Hint 3</h2>
+  <div class="content">
+    <p>[Add hint 3 content here]</p>
+  </div>
+</div>
+
+<script>
+  function toggle(header) {
+    const section = header.parentElement;
+    section.classList.toggle('active');
+  }
+</script>
 </body>
 </html>
