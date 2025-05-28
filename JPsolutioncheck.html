@@ -167,7 +167,7 @@
   <script>
     function checkPassphrase() {
       const correct = "apparently louis devoured all the snack yet the treasure remains";
-      const entered = document.getElementById("passphrase").value.trim();
+      const entered = document.getElementById("passphrase").value.trim().toLowerCase();
       const errorBox = document.getElementById("passphrase-error");
 
       if (entered === correct) {
