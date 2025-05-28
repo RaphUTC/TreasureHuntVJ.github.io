@@ -150,7 +150,7 @@
     <h2 onclick="toggle(this)">Enter the passphrase</h2>
     <div class="content">
       <p>If you think you have the answer, enter it here:</p>
-      <input type="text" id="passphrase" placeholder="Enter passphrase" style="padding: 10px; font-size: 1em;">
+      <input type="text" id="passphrase" placeholder="Enter passphrase WITHOUT any punctiation mark" style="padding: 10px; font-size: 1em;">
       <button onclick="checkPassphrase()" style="padding: 10px 15px; font-size: 1em; margin-left: 10px;">Submit</button>
       <div id="passphrase-error" style="color: red; margin-top: 10px;"></div>
     </div>
@@ -163,7 +163,7 @@
     }
   
     function checkPassphrase() {
-      const correct = "1853"; // <- à modifier si besoin
+      const correct = "Apparently Louis devoured all the snack yet the treasure remains";
       const entered = document.getElementById("passphrase").value.trim();
       const errorBox = document.getElementById("passphrase-error");
   
