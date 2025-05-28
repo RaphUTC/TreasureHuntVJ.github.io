@@ -146,5 +146,34 @@
     }
   </script>
 
+<div class="section">
+    <h2 onclick="toggle(this)">Enter the passphrase</h2>
+    <div class="content">
+      <p>If you think you have the answer, enter it here:</p>
+      <input type="text" id="passphrase" placeholder="Enter passphrase" style="padding: 10px; font-size: 1em;">
+      <button onclick="checkPassphrase()" style="padding: 10px 15px; font-size: 1em; margin-left: 10px;">Submit</button>
+      <div id="passphrase-error" style="color: red; margin-top: 10px;"></div>
+    </div>
+  </div>
+  
+  <script>
+    function toggle(header) {
+      const section = header.parentElement;
+      section.classList.toggle('active');
+    }
+  
+    function checkPassphrase() {
+      const correct = "1853"; // <- à modifier si besoin
+      const entered = document.getElementById("passphrase").value.trim();
+      const errorBox = document.getElementById("passphrase-error");
+  
+      if (entered === correct) {
+        window.location.href = "victory.html";
+      } else {
+        errorBox.textContent = "Incorrect passphrase. Try again.";
+      }
+    }
+  </script>
+
 </body>
 </html>
