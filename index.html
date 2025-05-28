@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asakusa Puzzle Hint</title>
+  <title>Veolia Treasure Hunt</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     body {
@@ -12,159 +12,83 @@
       padding: 0;
       background: #fdfaf5;
       color: #333;
+      text-align: center;
     }
     .banner {
       width: 100%;
       height: auto;
       display: block;
     }
-    .section {
-      padding: 10px 20px;
-      border-bottom: 1px solid #e0dcdc;
+    h1 {
+      font-size: 2em;
+      margin: 20px 0 10px;
     }
-    .section h2 {
-      margin: 0;
+    p.rules {
+      max-width: 600px;
+      margin: 0 auto 30px;
       font-size: 1.1em;
-      background: #ece2d0;
-      padding: 12px;
+      padding: 0 20px;
+      line-height: 1.5;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 40px 0;
+    }
+    .icon-button {
+      width: 150px;
       cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .icon-button:hover {
+      transform: scale(1.05);
+    }
+    .download-section {
+      margin: 40px 0;
+    }
+    .download-button {
+      padding: 12px 20px;
+      font-size: 1em;
+      background: #e3d2b5;
+      border: none;
       border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #333;
       transition: background 0.3s;
     }
-    .section h2:hover {
-      background: #e3d2b5;
-    }
-    .content {
-      display: none;
-      padding: 12px;
-      background: #fffaf0;
-      border-radius: 8px;
-      margin-top: 8px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    }
-    .map-image {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto 10px;
-      border-radius: 8px;
-    }
-    .active .content {
-      display: block;
-    }
-    @media (max-width: 600px) {
-      .section h2 {
-        font-size: 1em;
-        padding: 10px;
-      }
+    .download-button:hover {
+      background: #d5c3a8;
     }
   </style>
 </head>
 <body>
 
-  <!-- Banner image -->
-  <img src="banner.png" alt="Veolia Treasure Hunt Banner" class="banner">
+  <!-- Banner -->
+  <img src="banner.png" alt="Treasure Hunt Banner" class="banner">
 
-  <div class="section">
-    <h2 onclick="toggle(this)">First Stop</h2>
-    <div class="content">
-      <img src="map-placeholder.jpg" alt="Map Hint" class="map-image">
-      <p>Location near Asakusa Station A5 Exit, Edo Street × Kaminarimon Ichinomiya Street</p>
-    </div>
+  <!-- Title and intro -->
+  <h1>Welcome to the 2025 Veolia Treasure Hunt</h1>
+  <p class="rules">
+    Explore the Odaiba park and solve 10 puzzles hidden throughout the area. Use the "Hints" page if you get stuck, and check your answers on the "Solutions" page. Once you’ve completed the hunt, you can download the full booklet at the bottom of this page.
+  </p>
+
+  <!-- Hints and Solutions Buttons -->
+  <div class="buttons">
+    <a href="hintpage.html">
+      <img src="hints.png" alt="Go to Hints Page" class="icon-button">
+    </a>
+    <a href="solutioncheck.html">
+      <img src="solutions.png" alt="Go to Solutions Page" class="icon-button">
+    </a>
   </div>
 
-  <div class="section">
-    <h2 onclick="toggle(this)">Hint 1</h2>
-    <div class="content">
-      <p>First, head to the location and look for an information board with the same shape.</p>
-    </div>
+  <!-- Download PDF -->
+  <div class="download-section">
+    <a href="gamebook.pdf" class="download-button" download>Download the Game Booklet (PDF)</a>
   </div>
-
-  <div class="section">
-    <h2 onclick="toggle(this)">Hint 2</h2>
-    <div class="content">
-      <p>[Add hint 2 content here]</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2 onclick="toggle(this)">Hint 3</h2>
-    <div class="content">
-      <p>[Add hint 3 content here]</p>
-    </div>
-  </div>
-
-  <script>
-    function toggle(header) {
-      const section = header.parentElement;
-      section.classList.toggle('active');
-    }
-  </script>
-
-<div class="section">
-  <h2 onclick="toggle(this)">Second Stop</h2>
-  <div class="content">
-    <img src="map-placeholder.jpg" alt="Map Hint" class="map-image">
-    <p>Location near Asakusa Station A5 Exit, Edo Street × Kaminarimon Ichinomiya Street</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2 onclick="toggle(this)">Hint 1</h2>
-  <div class="content">
-    <p>First, head to the location and look for an information board with the same shape.</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2 onclick="toggle(this)">Hint 2</h2>
-  <div class="content">
-    <p>[Add hint 2 content here]</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2 onclick="toggle(this)">Hint 3</h2>
-  <div class="content">
-    <p>[Add hint 3 content here]</p>
-  </div>
-</div>
-
-<script>
-  function toggle(header) {
-    const section = header.parentElement;
-    section.classList.toggle('active');
-  }
-</script>
-
-<div class="section">
-  <h2 onclick="toggle(this)">Enter the passphrase</h2>
-  <div class="content">
-    <p>If you think you have the answer, enter it here:</p>
-    <input type="text" id="passphrase" placeholder="Enter passphrase" style="padding: 10px; font-size: 1em;">
-    <button onclick="checkPassphrase()" style="padding: 10px 15px; font-size: 1em; margin-left: 10px;">Submit</button>
-    <div id="passphrase-error" style="color: red; margin-top: 10px;"></div>
-  </div>
-</div>
-
-<script>
-  function toggle(header) {
-    const section = header.parentElement;
-    section.classList.toggle('active');
-  }
-
-  function checkPassphrase() {
-    const correct = "1853"; // <- à modifier si besoin
-    const entered = document.getElementById("passphrase").value.trim();
-    const errorBox = document.getElementById("passphrase-error");
-
-    if (entered === correct) {
-      window.location.href = "victory.html";
-    } else {
-      errorBox.textContent = "Incorrect passphrase. Try again.";
-    }
-  }
-</script>
 
 </body>
 </html>
