@@ -147,7 +147,7 @@
   <div class="section">
     <h2 onclick="toggle(this)">パスフレーズを入力</h2>
     <div class="content">
-      <p>すべてのエニグマを解いたら、以下にパスフレーズを入力してください：</p>
+      <p>すべてのエニグマを解いたら、以下にパスフレーズを入力してください (ピリオドやカンマ無しで入力)：</p>
       <input type="text" id="passphrase" placeholder="ピリオドやカンマ無しで入力" style="padding: 10px; font-size: 1em;">
       <button onclick="checkPassphrase()" style="padding: 10px 15px; font-size: 1em; margin-left: 10px;">送信</button>
       <div id="passphrase-error" style="color: red; margin-top: 10px;"></div>
@@ -156,7 +156,7 @@
 
   <script>
     function checkPassphrase() {
-      const correct = "Apparently Louis devoured all the snack yet the treasure remains";
+      const correct = "apparently Louis devoured all the snack yet the treasure remains";
       const entered = document.getElementById("passphrase").value.trim();
       const errorBox = document.getElementById("passphrase-error");
 
