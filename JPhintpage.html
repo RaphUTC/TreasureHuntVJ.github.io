@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ヴェオリア・トレジャーハント - ヒント</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfaf5;
+      color: #333;
+    }
+    .banner {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+      background: #f3e9dc;
+      font-size: 1.4em;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd0c8;
+    }
+    .return-button {
+      display: block;
+      margin: 20px auto;
+      width: 150px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .return-button:hover {
+      transform: scale(1.05);
+    }
+    .section {
+      padding: 10px 20px;
+      border-bottom: 1px solid #e0dcdc;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: 1.1em;
+      background: #ece2d0;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .section h2:hover {
+      background: #e3d2b5;
+    }
+    .content {
+      display: none;
+      padding: 12px;
+      background: #fffaf0;
+      border-radius: 8px;
+      margin-top: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .active .content {
+      display: block;
+    }
+    .hint-title {
+      background: #f5e7d0;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 8px 0;
+    }
+    .hint-title:hover {
+      background: #edd9b8;
+    }
+    .hint-text {
+      display: none;
+      padding: 8px;
+      background: #fff6e6;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- バナーとヘッダー -->
+  <img src="banner.png" alt="ヴェオリア・トレジャーハントバナー" class="banner">
+  <div class="header">ヒントページ</div>
+  <a href="JPindex.html"><img src="home.png" alt="ホームへ戻る" class="return-button"></a>
+
+  <div id="container"></div>
+
+  <script>
+    const labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+
+    const hints = {
+        A: ["使える漢字は3つだけです。", "2本の直線を引いてください。", "最初の文字は 'L' と 'O' です。"],
+        B: ["注意してください、小さな点に騙されるかもしれません…", "最初の文字は小さな点の中にあります。", "最後の文字は 'I' 'N' 'S' です。"],
+        C: ["赤と白の鶴から始めましょう。", "東京タワーは完全には見えません。", "最初の文字は 'S' です。"],
+        D: ["この単語は一般的で人々をまとめる意味です。", "‘482’ は左側、‘Flame of Liberty’ は右上にあります。", "3本の線だけを使ってください。"],
+        E: ["鼻の形は四角です。", "'Cesar Cipher' を使う必要があります。インターネットで調べてください。", "最初の文字は 'T' です。"],
+        F: ["4つの自販機があります。正しいものを選んでください。", "150円のボトルはそれぞれ文字で表されています。", "求めている単語が答えです。"],
+        G: ["木を見つけるには道を外れる必要はありません。", "数字は2桁です。", "その木は石碑の近くにあります。"],
+        H: ["記念碑の中に入ると丸い穴が見えます。", "四角い穴は無関係です。", "4つの数字を足す必要があります。"],
+        I: ["半島の縁を歩くと円錐を見つけられます。", "絵に描かれている風景は実際と同じです。", "1桁の数字を探してください。"],
+        J: ["数字は1つの錨に書かれています。", "その錨はコンクリートの道のすぐそばにあります。", "数字は '4' で始まり、2桁です。"]
+    };
+
+    const container = document.getElementById("container");
+
+    labels.forEach(label => {
+      const hintList = hints[label].map((hint, index) => `
+        <div class="hint-title" onclick="toggleHint('${label}-${index}')">ヒント ${index + 1}</div>
+        <div class="hint-text" id="hint-${label}-${index}">${hint}</div>
+      `).join('');
+
+      container.innerHTML += `
+        <div class="section" id="section-${label}">
+          <h2 onclick="toggleSection(this)">エニグマ${label} のヒント</h2>
+          <div class="content">
+            ${hintList}
+          </div>
+        </div>
+      `;
+    });
+
+    function toggleSection(header) {
+      const section = header.parentElement;
+      section.classList.toggle('active');
+    }
+
+    function toggleHint(id) {
+      const hint = document.getElementById(`hint-${id}`);
+      hint.classList.toggle('show');
+    }
+  </script>
+
+</body>
+</html>

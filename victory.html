@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Victory!</title>
+  <title>Congratulations!</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     body {
@@ -21,27 +21,61 @@
     }
     .container {
       padding: 40px 20px;
+      max-width: 800px;
+      margin: 0 auto;
     }
     h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
+      font-size: 2.5em;
+      margin-bottom: 10px;
       color: #d23600;
+    }
+    h2 {
+      font-size: 1.8em;
+      color: #444;
+      margin: 30px 0 15px;
     }
     p {
       font-size: 1.2em;
       color: #444;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    .final-clue {
+      background: #fffaf0;
+      border: 2px dashed #d9b48f;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 30px 0;
+    }
+    .location-image {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
   </style>
 </head>
 <body>
 
-  <!-- Banner image -->
+  <!-- Banner -->
   <img src="banner.png" alt="Veolia Treasure Hunt Banner" class="banner">
 
   <div class="container">
     <h1>✨ Congratulations! ✨</h1>
-    <p>You have successfully completed the treasure hunt.</p>
-    <p>Thank you for participating in the <strong>Veolia Treasure Hunt</strong>.</p>
+    <p>You have solved all the puzzles with incredible skill and determination.</p>
+    <p>The <strong>Veolia Treasure Hunt</strong> thanks you for your clever mind and adventurous spirit!</p>
+
+    <h2>🏴‍☠️ Final Enigma – The Pirate's Cove</h2>
+    <div class="final-clue">
+      <p>Now comes your final challenge. Go to the location shown in the image below:</p>
+      <img src="final-location.png" alt="Final location map" class="location-image">
+      <p>Once there, search carefully… you will discover a small hidden beach of stones — a pirate’s cove.</p>
+      <img src="treasure_place.png" alt="Pirate Cove" class="location-image" style="width: 35%;">
+      <p>Somewhere on the left side of this beach lies a tiny plastic box... and inside it: the <strong>real treasure</strong>.</p>
+      <p>In the box, you will find several papers. Take the one that corresponds to your rank:</p>
+      <p><em>If you're the first to arrive, take paper number 1. If you're the second, take number 2, etc.</em></p>
+      <p>✨Thank you for following this Treasure Hunt!✨</p>
+    </div>
   </div>
 
 </body>

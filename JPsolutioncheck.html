@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ヴェオリア・トレジャーハント – 解答入力</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfaf5;
+      color: #333;
+    }
+    .banner {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+      background: #f3e9dc;
+      font-size: 1.4em;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd0c8;
+    }
+    .return-button {
+      display: block;
+      margin: 20px auto;
+      width: 150px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .return-button:hover {
+      transform: scale(1.05);
+    }
+    .section {
+      padding: 10px 20px;
+      border-bottom: 1px solid #e0dcdc;
+    }
+    .section h2 {
+      margin: 0;
+      font-size: 1.1em;
+      background: #ece2d0;
+      padding: 12px;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .section h2:hover {
+      background: #e3d2b5;
+    }
+    .content {
+      display: none;
+      padding: 12px;
+      background: #fffaf0;
+      border-radius: 8px;
+      margin-top: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    .active .content {
+      display: block;
+    }
+    .success {
+      color: #7ba05b;
+      margin-top: 10px;
+    }
+    .error {
+      color: #d12c1f;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="banner.png" alt="ヴェオリア・トレジャーハント・バナー" class="banner">
+  <div class="header">解答入力ページ (答えはローマ字で書いてください。)</div>
+  <a href="JPindex.html"><img src="home.png" alt="ホームに戻る" class="return-button"></a>
+
+  <div id="container"></div>
+
+  <script>
+    const labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+
+    const solutions = {
+      A: "louis",
+      B: "remains",
+      C: "snack",
+      D: "all",
+      E: "the",
+      F: "treasure",
+      G: "18",
+      H: "154",
+      I: "6",
+      J: "48"
+    };
+
+    const successMessages = {
+        A: "素晴らしい！'LOUIS' は正解です。",
+        B: "正解です！'REMAINS' はこのエニグマの答えです。",
+        C: "お腹が空きましたか？'SNACK' が正解で、よく見つけました！",
+        D: "その通り！'ALL' がこのエニグマの正解です！",
+        E: "完璧です！'THE' がこのエニグマの答えです。この単語はパスフレーズで2回使われます。",
+        F: "'TREASURE' が正解です。乾杯しましょう（※VEOLIAは提供していません）！",
+        G: "完璧！'18' が正解です。探している単語は 'APPARENTLY' です。",
+        H: "これは少し難しかったですが、見事です。答えは '154'！探している単語は 'DEVOURED' です。",
+        I: "'6' は完璧な答えです！探している単語は 'YET' です。",
+        J: "素晴らしい！'48' が正解です。パスフレーズを作るには次の順で単語を並べてください：G-A-H-D-E-C-I-E-F-B"
+    };
+
+    const container = document.getElementById("container");
+
+    labels.forEach(label => {
+      container.innerHTML += `
+        <div class="section" id="section-${label}">
+          <h2 onclick="toggle(this)">エニグマ ${label}</h2>
+          <div class="content">
+            <p>エニグマ${label}の答えを入力してください：</p>
+            <input type="text" id="solution-${label}" placeholder="解答を入力" style="padding: 10px; font-size: 1em;">
+            <button onclick="checkSolution('${label}')" style="padding: 10px 15px; font-size: 1em; margin-left: 10px;">送信</button>
+            <div id="feedback-${label}"></div>
+          </div>
+        </div>`;
+    });
+
+    function toggle(header) {
+      const section = header.parentElement;
+      section.classList.toggle('active');
+    }
+
+    function checkSolution(label) {
+      const input = document.getElementById(`solution-${label}`).value.trim().toLowerCase();
+      const feedback = document.getElementById(`feedback-${label}`);
+      const correct = solutions[label];
+      const successMsg = successMessages[label];
+
+      if (input === correct) {
+        feedback.innerHTML = `<p class="success">${successMsg}</p>`;
+      } else {
+        feedback.innerHTML = `<p class="error">不正解です。もう一度試してください。</p>`;
+      }
+    }
+  </script>
+
+  <div class="section">
+    <h2 onclick="toggle(this)">パスフレーズを入力</h2>
+    <div class="content">
+      <p>すべてのエニグマを解いたら、以下にパスフレーズを入力してください：</p>
+      <input type="text" id="passphrase" placeholder="ピリオドやカンマ無しで入力" style="padding: 10px; font-size: 1em;">
+      <button onclick="checkPassphrase()" style="padding: 10px 15px; font-size: 1em; margin-left: 10px;">送信</button>
+      <div id="passphrase-error" style="color: red; margin-top: 10px;"></div>
+    </div>
+  </div>
+
+  <script>
+    function checkPassphrase() {
+      const correct = "Apparently Louis devoured all the snack yet the treasure remains";
+      const entered = document.getElementById("passphrase").value.trim();
+      const errorBox = document.getElementById("passphrase-error");
+
+      if (entered === correct) {
+        window.location.href = "JPvictory.html";
+      } else {
+        errorBox.textContent = "パスフレーズが正しくありません。もう一度試してください。";
+      }
+    }
+  </script>
+
+</body>
+</html>

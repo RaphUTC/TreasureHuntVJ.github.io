@@ -104,7 +104,7 @@
       B: "Correct! 'REMAINS' is the solution of this enigma",
       C: "Are you hungry now ? 'SNACK' was the answer and you found it!",
       D: "Yes! 'ALL' is the solution to this enigma!",
-      E: "Perfect ! 'THE' is the answer to this enigma.",
+      E: "Perfect ! 'THE' is the answer to this enigma. you'll use this word two time in the passphrase.",
       F: "'TREASURE' was the answer. Take a drink to celebrate this *not taken in charge by VEOLIA*",
       G: "Perfect ! '18' was the answer. The word you search is 'APPARENTLY'.",
       H: "This one was a bit tricky, but you did it the answer is '154'! The word you search is 'DEVOURED'.",
@@ -163,8 +163,8 @@
     }
   
     function checkPassphrase() {
-      const correct = "Apparently Louis devoured all the snack yet the treasure remains";
-      const entered = document.getElementById("passphrase").value.trim();
+      const correct = "apparently louis devoured all the snack yet the treasure remains";
+      const entered = document.getElementById("passphrase").value.trim().toLowerCase();
       const errorBox = document.getElementById("passphrase-error");
   
       if (entered === correct) {

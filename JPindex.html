@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ヴェオリア・トレジャーハント</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Zen Maru Gothic', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fdfaf5;
+      color: #333;
+      text-align: center;
+    }
+    .banner {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    h1 {
+      font-size: 2em;
+      margin: 20px 0 10px;
+    }
+    p.rules {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-size: 1.1em;
+      padding: 0 20px;
+      line-height: 1.5;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin: 40px 0;
+    }
+    .icon-button {
+      width: 150px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .icon-button:hover {
+      transform: scale(1.05);
+    }
+    .download-section {
+      margin: 40px 0;
+    }
+    .download-button {
+      padding: 12px 20px;
+      font-size: 1em;
+      background: #e3d2b5;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.3s;
+    }
+    .download-button:hover {
+      background: #d5c3a8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- バナー -->
+  <img src="banner.png" alt="トレジャーハントバナー" class="banner">
+
+  <!-- タイトルとルール -->
+  <h1>ようこそ！2025年 ヴェオリア・トレジャーハントへ</h1>
+  <p class="rules">
+    お台場公園を探索し、エリア内に隠された10個の謎を解きましょう。困ったときは「ヒント」ページを見て、答えは「解答」ページで確認してください。すべての謎を解いたら、このページの下部からブックレット全体をダウンロードできます。一部の答えは数字になりますが、その場合は対応する英単語が表示されます。エニグマ『J』は、単語をパスフレーズに並べるヒントになります。
+  </p>
+  <p class="rules">
+    <strong>注意：</strong> 謎はどの順番でも解くことができます。自由に探索して、マイペースに楽しんでください！
+  </p>
+
+  <!-- ヒント・解答ページへのボタン -->
+  <div class="buttons">
+    <a href="JPhintpage.html">
+      <img src="hints.png" alt="ヒントページへ" class="icon-button">
+    </a>
+    <a href="JPsolutioncheck.html">
+      <img src="solutions.png" alt="解答ページへ" class="icon-button">
+    </a>
+    <a href="index.html">
+      <img src="language.png" alt="言語を切り替える" class="icon-button">
+    </a>
+  </div>
+
+  <!-- PDF ダウンロード -->
+  <div class="download-section">
+    <a href="gamebook.pdf" class="download-button" download>ゲームブックレットをダウンロード（PDF）</a>
+  </div>
+
+</body>
+</html>
