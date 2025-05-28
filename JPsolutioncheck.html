@@ -71,6 +71,16 @@
       color: #d12c1f;
       margin-top: 10px;
     }
+    footer {
+      text-align: center;
+      background: #f3e9dc;
+      padding: 15px;
+      margin-top: 50px;
+      font-size: 0.9em;
+      color: #5e4c3b;
+      border-top: 1px solid #d7c9ba;
+      box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    }
   </style>
 </head>
 <body>
@@ -156,7 +166,7 @@
 
   <script>
     function checkPassphrase() {
-      const correct = "apparently Louis devoured all the snack yet the treasure remains";
+      const correct = "apparently louis devoured all the snack yet the treasure remains";
       const entered = document.getElementById("passphrase").value.trim();
       const errorBox = document.getElementById("passphrase-error");
 
@@ -167,6 +177,10 @@
       }
     }
   </script>
+
+<footer>
+  Made by Raphaël Q. for Veolia Japan 🌸
+</footer>
 
 </body>
 </html>
