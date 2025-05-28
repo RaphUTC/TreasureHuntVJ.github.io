@@ -53,15 +53,26 @@
       margin-top: 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
     }
+    .return-button {
+        display: block;
+        margin: 20px auto;
+        width: 150px;
+        cursor: pointer;
+        transition: transform 0.2s;
+    }
+    .return-button:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
 
   <!-- Banner -->
   <img src="banner.png" alt="Veolia Treasure Hunt Banner" class="banner">
+  <a href="index.html"><img src="home.png" alt="Return" class="return-button"></a>
 
   <div class="container">
-    <h1>✨ Congratulations! ✨</h1>
+    <h1>Congratulations!</h1>
     <p>You have solved all the puzzles with incredible skill and determination.</p>
     <p>The <strong>Veolia Treasure Hunt</strong> thanks you for your clever mind and adventurous spirit!</p>
 
@@ -70,7 +81,7 @@
       <p>Now comes your final challenge. Go to the location shown in the image below:</p>
       <img src="final-location.png" alt="Final location map" class="location-image">
       <p>Once there, search carefully… you will discover a small hidden beach of stones — a pirate’s cove.</p>
-      <img src="treasure_place.png" alt="Pirate Cove" class="location-image" style="width: 35%;">
+      <img src="treasure_place.png" alt="Pirate Cove" class="location-image" style="width: 40%;">
       <p>Somewhere on the left side of this beach lies a tiny plastic box... and inside it: the <strong>real treasure</strong>.</p>
       <p>In the box, you will find several papers. Take the one that corresponds to your rank:</p>
       <p><em>If you're the first to arrive, take paper number 1. If you're the second, take number 2, etc.</em></p>
