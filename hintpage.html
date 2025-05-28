@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asakusa Puzzle Hint</title>
+  <title>Veolia Treasure Hunt – Hints</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <style>
     body {
@@ -17,6 +17,24 @@
       width: 100%;
       height: auto;
       display: block;
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+      background: #f3e9dc;
+      font-size: 1.4em;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd0c8;
+    }
+    .return-button {
+      display: block;
+      margin: 20px auto;
+      width: 150px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .return-button:hover {
+      transform: scale(1.05);
     }
     .section {
       padding: 10px 20px;
@@ -42,129 +60,84 @@
       margin-top: 8px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     }
-    .map-image {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto 10px;
-      border-radius: 8px;
-    }
     .active .content {
       display: block;
     }
-    @media (max-width: 600px) {
-      .section h2 {
-        font-size: 1em;
-        padding: 10px;
-      }
+    .hint-title {
+      background: #f5e7d0;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin: 8px 0;
+    }
+    .hint-title:hover {
+      background: #edd9b8;
+    }
+    .hint-text {
+      display: none;
+      padding: 8px;
+      background: #fff6e6;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+    .show {
+      display: block;
     }
   </style>
 </head>
 <body>
 
-  <!-- Banner image -->
+  <!-- Banner and Header -->
   <img src="banner.png" alt="Veolia Treasure Hunt Banner" class="banner">
+  <div class="header">Hint Page</div>
+  <a href="index.html"><img src="home.png" alt="Return" class="return-button"></a>
 
-  <div class="section">
-    <h2 onclick="toggle(this)">First Stop</h2>
-    <div class="content">
-      <img src="map-placeholder.jpg" alt="Map Hint" class="map-image">
-      <p>Location near Asakusa Station A5 Exit, Edo Street × Kaminarimon Ichinomiya Street</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2 onclick="toggle(this)">Hint 1</h2>
-    <div class="content">
-      <p>First, head to the location and look for an information board with the same shape.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2 onclick="toggle(this)">Hint 2</h2>
-    <div class="content">
-      <p>[Add hint 2 content here]</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2 onclick="toggle(this)">Hint 3</h2>
-    <div class="content">
-      <p>[Add hint 3 content here]</p>
-    </div>
-  </div>
+  <div id="container"></div>
 
   <script>
-    function toggle(header) {
+    const labels = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'];
+
+    const hints = {
+      A: ["Look near something metallic.", "Think of a French name.", "There is a street sign nearby."],
+      B: ["You’re looking for remains… maybe something old.", "Check under your feet.", "It’s linked to the past."],
+      C: ["Your stomach might give you a clue.", "Look for a vending machine.", "It’s something edible."],
+      D: ["It's a tiny word.", "Universal meaning.", "Linked to the group."],
+      E: ["Used in sentences often.", "Look at sentence structure.", "You say it without thinking."],
+      F: ["You’re searching for it!", "It’s a big reward.", "Check the map title."],
+      G: ["Just a number.", "Maybe it’s a year.", "It’s underlined on the panel."],
+      H: ["[Hint 1 for H]", "[Hint 2 for H]", "[Hint 3 for H]"],
+      I: ["[Hint 1 for I]", "[Hint 2 for I]", "[Hint 3 for I]"],
+      J: ["[Hint 1 for J]", "[Hint 2 for J]", "[Hint 3 for J]"]
+    };
+
+    const container = document.getElementById("container");
+
+    labels.forEach(label => {
+      const hintList = hints[label].map((hint, index) => `
+        <div class="hint-title" onclick="toggleHint('${label}-${index}')">Hint ${index + 1}</div>
+        <div class="hint-text" id="hint-${label}-${index}">${hint}</div>
+      `).join('');
+
+      container.innerHTML += `
+        <div class="section" id="section-${label}">
+          <h2 onclick="toggleSection(this)">Hints for Enigma ${label}</h2>
+          <div class="content">
+            ${hintList}
+          </div>
+        </div>
+      `;
+    });
+
+    function toggleSection(header) {
       const section = header.parentElement;
       section.classList.toggle('active');
     }
-  </script>
 
-<div class="section">
-  <h2 onclick="toggle(this)">Second Stop</h2>
-  <div class="content">
-    <img src="map-placeholder.jpg" alt="Map Hint" class="map-image">
-    <p>Location near Asakusa Station A5 Exit, Edo Street × Kaminarimon Ichinomiya Street</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2 onclick="toggle(this)">Hint 1</h2>
-  <div class="content">
-    <p>First, head to the location and look for an information board with the same shape.</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2 onclick="toggle(this)">Hint 2</h2>
-  <div class="content">
-    <p>[Add hint 2 content here]</p>
-  </div>
-</div>
-
-<div class="section">
-  <h2 onclick="toggle(this)">Hint 3</h2>
-  <div class="content">
-    <p>[Add hint 3 content here]</p>
-  </div>
-</div>
-
-<script>
-  function toggle(header) {
-    const section = header.parentElement;
-    section.classList.toggle('active');
-  }
-</script>
-
-<div class="section">
-  <h2 onclick="toggle(this)">Enter the passphrase</h2>
-  <div class="content">
-    <p>If you think you have the answer, enter it here:</p>
-    <input type="text" id="passphrase" placeholder="Enter passphrase" style="padding: 10px; font-size: 1em;">
-    <button onclick="checkPassphrase()" style="padding: 10px 15px; font-size: 1em; margin-left: 10px;">Submit</button>
-    <div id="passphrase-error" style="color: red; margin-top: 10px;"></div>
-  </div>
-</div>
-
-<script>
-  function toggle(header) {
-    const section = header.parentElement;
-    section.classList.toggle('active');
-  }
-
-  function checkPassphrase() {
-    const correct = "1853"; // <- à modifier si besoin
-    const entered = document.getElementById("passphrase").value.trim();
-    const errorBox = document.getElementById("passphrase-error");
-
-    if (entered === correct) {
-      window.location.href = "victory.html";
-    } else {
-      errorBox.textContent = "Incorrect passphrase. Try again.";
+    function toggleHint(id) {
+      const hint = document.getElementById(`hint-${id}`);
+      hint.classList.toggle('show');
     }
-  }
-</script>
+  </script>
 
 </body>
 </html>
